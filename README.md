@@ -1,11 +1,9 @@
 # url2wp
 url2wp is a high-performance, surgical-grade utility designed for WordPress developers and power users who need to integrate external media into the native Media Library without physical file ingestion.
 
-===========================
 PLUGIN NAME:url2wp (External Media Linker)
 VERSION: 2.0.0
-AUTHOR: EEZZ (囧丁乙 Team)
-==========================
+AUTHOR: 囧丁乙
 
 ### 1. OVERVIEW
 url2wp is a high-performance, surgical-grade utility designed for WordPress developers and power users who need to integrate external media into the native Media Library without physical file ingestion. 
