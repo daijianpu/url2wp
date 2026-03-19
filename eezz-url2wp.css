@@ -1,0 +1,158 @@
+/**
+ * 囧丁乙 - url2wp 样式表
+ * 1:1 平移旧版布局逻辑，并针对 WordPress 原生 UI 进行视觉优化
+ */
+
+/* ==========================================================================
+   # 精确修复：独立页面布局错位 Bug
+   ========================================================================== */
+
+/**
+ * 当且仅当处于插件独立页面时 (通过 Body Class 限定范围)，
+ * 强制父容器 .wrap 为相对定位。
+ * * 作用：解决由于 .wrap 未撑开高度导致的 WP 底部署名行重叠问题，
+ * 使得内部 100% 高度的绝对定位面板能正确计算布局 context。
+ */
+body.media_page_eezz-url2wp-handler .wrap {
+    position: relative;
+    min-height: 500px; /* 设定最小高度，保证页面整洁 */
+}
+
+/* ==========================================================================
+   # UI 注入区域 (标准上传界面)
+   ========================================================================== */
+#emwi-in-upload-ui {
+    margin: 1.5em auto;
+    text-align: center;
+    padding: 20px;
+    border: 1px dashed #c3c4c7;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+}
+
+#emwi-in-upload-ui .row1 {
+    margin-bottom: 1em;
+    color: #646970;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   # 核心面板 (绝对定位覆盖层)
+   ========================================================================== */
+#emwi-media-new-panel {
+    position: absolute; /* Defaults to absolute overlay for modal mode */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    background-color: #fff;
+    text-align: left;
+    box-sizing: border-box;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+/* 在媒体库弹窗内的背景适配 */
+.media-modal-content #emwi-media-new-panel {
+    background-color: #fff;
+}
+
+/* ==========================================================================
+   # 内部元素样式
+   ========================================================================== */
+
+/* 标签与描述 */
+#emwi-urls-label {
+    display: block;
+    margin-bottom: 1em;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1d2327;
+}
+
+/* URL 输入框 */
+#emwi-urls {
+    width: 100%;
+    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+    font-size: 13px;
+    border: 1px solid #8c8f94;
+    border-radius: 4px;
+    padding: 12px;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.07);
+    transition: border-color 0.1s ease-in-out;
+}
+
+#emwi-urls:focus {
+    border-color: #2271b1;
+    box-shadow: 0 0 0 1px #2271b1;
+    outline: none;
+}
+
+/* 错误提示 */
+#emwi-error {
+    color: #d63638;
+    font-weight: 600;
+}
+
+/* 手动属性输入区 */
+#emwi-properties {
+    margin-top: 20px;
+    padding: 15px 20px;
+    background: #f6f7f7;
+    border: 1px solid #dcdcde;
+    border-radius: 4px;
+}
+
+#emwi-properties label {
+    font-weight: 600;
+    margin-right: 10px;
+    color: #3c434a;
+}
+
+#emwi-properties input[type="number"],
+#emwi-properties input[type="text"] {
+    margin-right: 25px;
+    height: 30px;
+}
+
+#emwi-width, 
+#emwi-height {
+    width: 90px;
+}
+
+#emwi-mime-type {
+    min-width: 220px;
+}
+
+/* 底部按钮行 */
+#emwi-buttons-row {
+    margin-top: 25px;
+    text-align: right;
+    border-top: 1px solid #dcdcde;
+    padding-top: 20px;
+}
+
+#emwi-buttons-row .spinner {
+    margin: 4px 15px 0 0;
+    float: none;
+    visibility: hidden;
+}
+
+#emwi-buttons-row .spinner.is-active {
+    visibility: visible;
+}
+
+#emwi-clear {
+    margin-right: 15px;
+}
+
+#emwi-add {
+    margin-right: 10px;
+}
+
+#emwi-cancel {
+    margin-left: 5px;
+}
